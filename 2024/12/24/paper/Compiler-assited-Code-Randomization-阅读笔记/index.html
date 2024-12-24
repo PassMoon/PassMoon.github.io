@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://passmoon.github.io/img/butterfly-icon.png">
 <meta property="article:published_time" content="2024-12-24T02:23:38.000Z">
-<meta property="article:modified_time" content="2024-12-24T02:26:47.079Z">
+<meta property="article:modified_time" content="2024-12-24T02:56:53.511Z">
 <meta property="article:author" content="PassMoon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://passmoon.github.io/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://passmoon.github.io/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
@@ -145,7 +145,7 @@
   isHighlightShrink: false,
   isToc: true,
   isShuoshuo: false
-}</script><link rel="stylesheet" href="/fonts/font.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">PassMoon</span></a><a class="nav-page-title" href="/"><span class="site-name">Compiler-assited Code Randomization 阅读笔记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Compiler-assited Code Randomization 阅读笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-24T02:23:38.000Z" title="发表于 2024-12-24 10:23:38">2024-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-24T02:26:47.079Z" title="更新于 2024-12-24 10:26:47">2024-12-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>报告目录</strong></p>
+}</script><link rel="stylesheet" href="/fonts/font.css"><meta name="generator" content="Hexo 7.3.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">PassMoon</span></a><a class="nav-page-title" href="/"><span class="site-name">Compiler-assited Code Randomization 阅读笔记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Compiler-assited Code Randomization 阅读笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-24T02:23:38.000Z" title="发表于 2024-12-24 10:23:38">2024-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-24T02:56:53.511Z" title="更新于 2024-12-24 10:56:53">2024-12-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>报告目录</strong></p>
 <ul>
 <li><strong>要解决什么问题</strong></li>
 <li><strong>相关背景知识</strong></li>
@@ -167,7 +167,7 @@
 <p>当执行代码随机化时，具有寄存器或立即操作数的机器指令在移动到新的（随机）位置后不需要任何修改。 相反，如果操作数包含如果一个指令的新位置（相对或绝对）指向一个存储器位置，那么它必须根据指令的新位置、目标的新位置或两者来调整。</p>
 <p>对于LLVM，每当一个值还不具体时（例如，存储器位置或外部符号），其由占位符值表示，并且发出相应的修复。每个修复包含关于当相关信息在<em>relaxation</em>阶段，汇编程序根据其修复修改占位符值，因为它们变得已知。一旦松弛完成，任何未解决的修复都将成为重定位，存储在最终的目标文件中。</p>
 <p>Note：“relaxation phase”（松弛阶段）是指在编译过程中的一个特定步骤，它发生在汇编器将汇编语言代码转换为机器代码时。这个阶段的主要目的是处理那些在汇编时尚未完全确定的指令，特别是那些涉及跳转和分支指令，它们的具体地址或大小可能依赖于最终的内存布局。</p>
-<style>.skagditemskj{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241222162933140.png" class="skagditemskj" alt="image-20241222162933140">
+<style>.blytwrjouztg{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241222162933140.png" class="blytwrjouztg" alt="image-20241222162933140">
 <p>目标文件中的重定位称为<em><strong>link-time relocations</strong></em>，即在汇编过程之后仍未解决的修复（由链接器处理）。同样，可执行文件中的重定位（或动态共享对象）作为<em><strong>load-time relocations</strong></em>,即链接后未解决的重定位（将由动态链接器/加载器处理）。在这个图1的示例中，最终的可执行文件不包含任何load-time relocations，因为重定位1是在链接期间解决的（0x 4349-&gt;0x 6308d）。总之，load-time relocations是link-time relocations的子集，链接时重定位是所有修复的子集。不幸的是，即使链接器完全保留了链接时重定位，它们也不足以执行细粒度代码随机化。例如，修复2较早由汇编器解决，但对于基本块重新排序是必不可少的，因为如果目标基本块从JMP指令本身向前移动超过127个字节或向后移动超过126个字节，则相应的单字节JMP指令可能必须被四字节JMP指令替换。显然，全面的修正是细粒度代码重排的关键信息。</p>
 <h2 id="该领域研究现状"><strong>该领域研究现状</strong></h2>
 <p>尽管进行了数十年的研究，只有地址空间布局随机化（ASLR）（以及最近 OpenBSD 中的链接时粗粒度代码排列）得到了广泛应用。更全面的技术，如细粒度代码随机化，大多还停留在学术研究阶段，主要原因有两个：i) 缺乏不破坏现有软件分发规范的透明且先进的部署模式；ii) 与成熟的软件构建、回归测试、调试、崩溃报告、诊断和安全监控工作流程和机制不兼容。</p>
@@ -191,9 +191,9 @@
 <p>兼容性：代码随机化是一种高度破坏性的操作，即使对于复杂的程序和代码结构也应该安全地适用。</p>
 <p>绝大多数软件都以编译后的二进制文件的形式分发，在安装时，分布式软件通常经历一些后处理和定制。在这种模式下，代码随机化可以适当地作为安装期间的附加后处理任务。 随机化可以在加载时发生，但为了避免由于代码随机化所需的较长重写时间而引起的大量用户感知延迟，更可行的方法是保留一个预随机化的变体（例如，操作系统服务可以在后台生成它们），然后加载器可以立即使用。</p>
 <p>嵌入式元数据主要有两个作用。首先，它可以安全地随机化复杂的软件，而无需依赖不精确的方法和不完整的符号或调试信息。其次，它构成了在需要时逆转任何应用代码转换的基础，以保持与依赖于引用最初发布的原始代码的现有机制的兼容性。</p>
-<style>.doncyevvvwsx{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241222185046669.png" class="doncyevvvwsx" alt="image-20241222185046669">
-<p>图 2 展示了整体方法的高级视图。</p>
-<p>编译过程基本保持不变，只是在编译每个对象文件和链接最终主可执行文件时增加了元数据收集和处理步骤。然后，可执行文件就可以通过现有的分发渠道和机制提供给用户和终端，而无需进行任何更改。在每个端点的安装过程中，二进制重写器会利用嵌入的元数据生成随机化版本的可执行文件。</p>
+<style>.boratruehjgr{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241222185046669.png" class="boratruehjgr" alt="image-20241222185046669">
+<p>图 2 展示了整体方法。</p>
+<p>编译过程基本保持不变，只是在编译每个对象文件和链接生成最终主要可执行文件时增加了元数据收集和处理步骤。然后，可执行文件就可以通过现有的分发渠道和机制提供给用户和终端，而无需进行任何更改。在每个端点的安装过程中，二进制重写器会利用嵌入的元数据生成随机化版本的可执行文件。</p>
 <p><strong>编译器级的元数据</strong></p>
 <img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241222190106092.png" class="" title="image-20241222190106092">
 <ol>
@@ -210,15 +210,15 @@
 <p>图 3 的例子中，我们可以识别出三种类型的数据片段、松弛片段和对齐片段。松弛片段只针对分支指令且只有一个单独指令所产生；对齐片对对应于填充比特；剩余指令作为数据段进行发布。另一个考虑是<em>fall-through</em>基本块，以条件分支结束的基本模块会根据条件的评估结果，隐含地跳转到它的后继模块，必须对这类跳过的基本模块进行标记，以便在重新排序时对其进行适当处理。</p>
 </li>
 <li>
-<p>**修复信息：**评估修复信息和生成重定位条目是布局最终确定过程中最后一个处理阶段的一部分，也就是发射实际代码字节之前。</p>
+<p><strong>修复信息</strong>：评估修复信息和生成重定位条目是布局最终确定过程中最后一个处理阶段的一部分，也就是发射实际代码字节之前。</p>
 <p>如表 I 所示，我们将除了<code>.text</code>节的其余节定义为数据，并将其分为四类：代码到代码（c2c）、代码到数据（c2d）、数据到代码（d2c）和数据到数据（d2d）。</p>
 </li>
 <li>
-<p>**跳转表信息：**对于非 PIC/PIE（位置无关代码/可执行文件）二进制文件，编译器会生成跳转表项，使用其绝对地址。在 PIC 可执行文件中，跳转表项与相对偏移量相对应，与可执行文件的加载地址无关。</p>
+<p><strong>跳转表信息</strong>：对于非 PIC/PIE（位置无关代码/可执行文件）二进制文件，编译器会生成跳转表项，使用其绝对地址。在 PIC 可执行文件中，跳转表项与相对偏移量相对应，与可执行文件的加载地址无关。</p>
 <p>为了适当地修补此类跳转表结构（编译器不会为其提供额外信息），我们必须保留的唯一额外信息就是跳转表中的条目数和每个条目的大小。如表 I 所示，这些信息将与其他修补元数据一起保存，因为跳转表项中的相对偏移量在随机化后应根据相应目标的新位置进行更新。</p>
 <img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241223002049752.png" class="" title="image-20241223002049752">
 <p><strong>Link-time Metadata 合并</strong></p>
-<style>.aiuvswbjmlqk{zoom:50%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%7BCAA6D4DB-F50A-491F-A580-EB34435A6560%7D.png" class="aiuvswbjmlqk" alt="{CAA6D4DB-F50A-491F-A580-EB34435A6560}">
+<style>.rogyqepziohb{zoom:50%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%7BCAA6D4DB-F50A-491F-A580-EB34435A6560%7D.png" class="rogyqepziohb" alt="{CAA6D4DB-F50A-491F-A580-EB34435A6560}">
 <ol>
 <li>首先每个对象各个部分会根据命名规则合并为一个部分</li>
 <li>每个对象的元数据也会被提取合并为一个部分</li>
@@ -257,7 +257,7 @@
 <li>
 <p>二进制重写器</p>
 <p>重写器必须很容易整合到现有软件安装工作流中，本文通过 apt 的包装脚本功能，将它与 Linux 的 apt 软件包管理系统结合使用。</p>
-<style>.ycbcfttjtmxc{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241223210724372.png" class="ycbcfttjtmxc" alt="image-20241223210724372">
+<style>.lfgyeohiqspl{zoom:80%;}</style><img src="/2024/12/24/paper/Compiler-assited-Code-Randomization-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/image-20241223210724372.png" class="lfgyeohiqspl" alt="image-20241223210724372">
 <p>如图6所示，首先对ELF二进制文件提取元数据时进行分析和完整性检查，使用Protocol Buffers进行元数据的序列化，以确保结构化数据流的清晰、高效和可移植性。其次，将解析出的信息组织成优化的数据结构，这些信息包括对象（objects）、函数（functions）、基本块（basic blocks）和修复（fixups）之间的关系。这些信息被用来构建一个树状的数据结构，以便随机化引擎可以基于这个结构进行代码布局的转换、解决约束条件，并更新目标位置。之后，重写器执行实际的随机化操作，包括根据树状数据结构中的信息变换代码布局，解决由于修复操作和代码布局变化带来的约束，并计算新的代码布局。最后将新的代码布局写入最终的二进制文件中。</p>
 </li>
 </ol>
@@ -307,21 +307,22 @@
 </li>
 </ol>
 <p>作者提到，这些局限性可以通过额外的工程努力来解决，并作为他们未来工作的一部分。</p>
-<p><strong>a) 其他类型的代码硬化：</strong></p>
+<p><strong>其他细节讨论：</strong></p>
+<p>a) 其他类型的代码硬化：</p>
 <ul>
 <li>基本块重排序是一种影响深远的代码随机化技术，可以确保没有任何ROP gadgets留在其原始位置。这种方法对于防御间接JIT-ROP攻击非常重要，因为这些攻击依赖于代码指针泄露。</li>
 <li>对于仅由单个基本块组成的函数，可以通过在函数开头插入NOP指令或垃圾指令来解决相对距离不变的问题。</li>
 <li>其他更窄范围的转换，如指令替换、基本块内指令重排序和寄存器重新分配，也可以得到支持，因为元数据提供了关于基本块边界的精确知识。</li>
 <li>对于依赖于整个函数重用的更复杂攻击，需要更积极的转换，如代码指针间接引用或函数参数随机化。</li>
 </ul>
-<p><strong>b) 错误报告、白名单和补丁程序：</strong></p>
+<p>b) 错误报告、白名单和补丁程序：</p>
 <ul>
 <li>CCR方法的一个主要好处是它允许保持与依赖软件一致性的操作的兼容性，这目前是实际部署基于客户端细粒度代码转换保护的一个主要障碍。</li>
 <li>通过在端点执行实际的多样化，任何阻碍现有规范的副作用都可以被逆转。例如，多样化进程的崩溃转储可以在生成后立即进行后处理，以便代码地址更改为最初分发的主二进制文件的原始代码位置。</li>
 <li>代码完整性检查和白名单机制可以在实际验证之前对内存中或磁盘上的代码进行去随机化。</li>
 <li>代码签名不需要任何修改，因为主二进制文件可以在分发前正常签名。客户端的二进制重写器可以在验证签名后继续进行。</li>
 </ul>
-<p><strong>c) 知识产权：</strong></p>
+<p>c) 知识产权：</p>
 <ul>
 <li>对于专有软件，二进制代码的复杂性以及缺乏符号信息（可能使用代码混淆）可以显著阻碍通过二进制代码反汇编、控制流图提取和反编译来重建原始代码语义的任何尝试。</li>
 <li>促进代码随机化的元数据当然可以帮助提取更准确的汇编代码和控制流图视图，但不会传达任何有助于提取更高级别程序语义的新符号信息。</li>
